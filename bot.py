@@ -9,8 +9,7 @@ import smtplib
 
 engine = pyttsx3.init('sapi5')  # sapi5 is a microsoft Api for speech to reply
 voices = engine.getProperty('voices')
-# print(voices[1].id)
-engine.setProperty('voice', voices[0].id)
+engine.setProperty('voice', voices[0].id)          # 0th index for female voice,1 for male voice
 
 chromedir= 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
 """Set web browser location to google chrome"""
@@ -18,7 +17,6 @@ chromedir= 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
 def speak(audio):
     engine.say(audio)
     engine.runAndWait()
-
 
 
 def wishme():
@@ -67,7 +65,7 @@ def sendEmail(to, content):
         to {[string]} -- [email address of the user]
         content {[type]} -- [content of the email]
     Requirement:
-        MUST ENABLE LESS SECURED APPS TO SEND EMAIL TO YOUR GMAIL ACCOUNT
+        MUST ENABLE LESS SECURED APPS IN SETTINGS TO SEND EMAIL TO YOUR GMAIL ACCOUNT
     """
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.ehlo()
